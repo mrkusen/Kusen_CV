@@ -1,0 +1,193 @@
+---
+name: Matthew
+surname: Kusen
+position: "Demography - Public Health - Data Analysis"
+address: "Centric Ari Station, Phaya Thai, Bangkok, Thailand"
+phone: +66 91 792 8610
+email: "mrkusen@gmail.com"
+twitter: mkusen
+github: mrkusen
+linkedin: mrkusen
+date: "`r format(Sys.time(), '%B %Y')`"
+output: vitae::awesomecv
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+library(tidyverse)
+library(tibble)
+library(glue)
+
+
+```
+
+# Overview
+
+* Public Health professional with 9 years of experience working in and providing technical support to programs in humanitarian and development settings. 
+* Currently enrolled in an Master's in Demography. 
+* Skills in data analysis, statistical analysis, data visualization, monitoring & evaluation, management, leadership, coordination, capacity development, program design, budget management and reporting. 
+* Expertise in sexual & reproductive health (SRH) and inclusion of sexual and gender minorities (LGBTIQ+).
+
+```{r}
+#input data
+
+
+## Skills
+skills <- read_csv(here::here("data", "skills.csv")) %>% 
+  group_by(category) %>% 
+  mutate(skill = paste(skill, collapse = ", ")) %>% 
+  ungroup %>% 
+  unique
+
+## Jobs
+jobs <- read_csv(here::here("data", "jobs.csv"))
+jobs = as_tibble(jobs)
+```
+
+# Employment
+
+
+
+```{r}
+jobs %>%
+  detailed_entries(
+    with = role,
+    what = company,
+    why = details,
+    when = glue::glue("{startMonth} {startYear} --> {endMonth} {endYear}",.na = ""),
+    where = where
+  )
+
+```
+
+
+
+
+# Education
+
+```{r}
+tribble(
+  ~ Degree, ~ Year, ~ Institution, ~ Where,
+  "Master of Demography", "Expected May 2022", "Chulalongkorn University", "Bangkok, Thailand",
+  "Bachelor of Political Science", "May 2012", "University at Buffalo, SUNY", "New York, USA",
+  "Exchange Student", "2011", "Université de Paris 7", "Paris, France",
+  "French Immersion Program", "2010", "Institut de Touraine", "Tours, France"
+) %>% 
+  detailed_entries(Degree, Year, Institution, Where)
+```
+
+# Skills
+
+```{r}
+skills %>% 
+  detailed_entries(what = skill, with = category)
+```
+
+# Publications
+
+```{r}
+library(dplyr)
+
+bibliography_entries("/Users/matthew/Documents/Career/Resume/Kusen_CV/kusen_publications.bib") %>%
+  arrange(desc(issued$family), issued)
+```
+
+# Training
+
+```{r}
+tribble(
+  ~Year, ~Type, ~Place,
+  2019, "Monitoring & Evaluation for Results - IMA International", "Bangkok, Thailand",
+  2018, "Hostile Environment Awareness Training (HEAT) - Human Development Forum Foundation","Thailand",
+  2018, "CPR and First Aid Training - First Aid Bangkok", "Thailand",
+  2017, "Rape Crisis Counsellor Training - Department of Health ", "New York, USA",
+  2016, "Trainer of Clinical Care for Sexual Assault Survivors (CCSAS) - International Rescue Committee", "Uganda",
+  2014, "Minimum Initial Service Package (MSIP) for Reproductive Health In Crisis - IAWG", "online"
+) %>%  
+  brief_entries(
+    Type,
+    Year, 
+    Place
+  )
+```
+
+
+# Volunteer & Related Experience
+
+```{r}
+tribble(
+  ~Year, ~Type, ~Place,
+  "2015-2017", "Activist Council - Planned Parenthood of New York", "NYC, USA",
+  "2016-2017", "Community Activist - Anti-Violence Project of New York", "NYC, USA",
+  "2011-2012", "English Instructor -  École pour l'informatique et les nouvelles technologies (EPITECH)", "Paris, France",
+  "2011-2011", "Volunteer - Peace & Tolerance Program, Action Aid Denamrk", "Denmark",
+) %>%  
+  brief_entries(
+    Type,
+    Year, 
+    Place
+  )
+```
+
+# Country Experience
+Indonesia, Philippines, Fiji, Papua New Guinea, Haiti, Central African Republic (CAR), Democratic Republic of the Congo (DRC), Togo, Sierra Leone, United States, Thailand and France
+
+
+
+```{r}
+#Insert Map
+
+#load packages
+library(tidyverse)
+library(rvest)
+library(magrittr)
+library(ggmap)
+library(stringr)
+library(tidyverse)
+
+#update country experience list and country support list
+country_w <- c("Indonesia","Philippines","Fiji",
+"Papua New Guinea","Haiti", "Central African Republic", "Democratic Republic of the Congo", "Togo", "Sierra Leone", "USA", "Thailand","France","Denmark")
+country_work <- cbind(country_w,"worked")
+
+country_s <- c("Nigeria","Chad","Burkina Faso","Niger","Ghana","South Sudan","Tanzania","Afghanistan","Pakistan","India","Bangladesh","Sri Lanka","Myanmar","Syria","Yemen","Uganda","Kenya")
+country_support <- cbind(country_s,"support")
+
+country_list_CV <- rbind(country_work,country_support) %>% as_tibble()
+country_list_CV <- rename(country_list_CV, country = country_w,
+       type = V2)
+
+#load map data
+map.world <- map_data("world")
+
+#verify all countries found in world map
+check <- map.world %>% filter(region %in% country_list_CV$country)
+checked <- unique(as.character(check$region))
+# checked
+# dim(country_list_CV)
+
+#join
+map.world_joined <- left_join(map.world, country_list_CV, by = c('region' = 'country'))
+
+# flag the countries to be filled in for worked in and supported remotely
+
+plot_work_experience <- ggplot() +
+    geom_polygon(data = map.world_joined, 
+                 aes(x = long, y = lat, group = group,
+                     fill = type))+
+    theme(axis.ticks = element_blank(),axis.text = element_blank(),
+          axis.title = element_blank(),panel.grid = element_blank(),
+          legend.position = c(.15,.3),
+          plot.background = element_rect(fill = "#FFFFFF"),
+          panel.background = element_rect(fill = "#FFFFFF"))+
+    labs(fill="Country Experience")+
+    scale_fill_discrete(name="Country Experience", 
+                      labels=c("Supported Remotely",
+                               "Worked In-Country"," "))
+plot_work_experience
+```
+
+map created with ggmap http://journal.r-project.org/archive/2013-1/kahle-wickham.pdf
+
+CV created using RMarkdown in RStudio. Reproducible code and data can be found at https://github.com/mrkusen/CV
