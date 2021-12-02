@@ -190,4 +190,4 @@ plot_work_experience
 
 map created with ggmap http://journal.r-project.org/archive/2013-1/kahle-wickham.pdf
 
-CV created using RMarkdown in RStudio. Reproducible code and data can be found at https://github.com/mrkusen/CV
+CV created using RMarkdown in RStudio. Reproducible code and data can be found at https://github.com/mrkusen/Kusen_CV
