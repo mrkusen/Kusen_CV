@@ -84,6 +84,8 @@ skills %>%
   detailed_entries(what = skill, with = category)
 ```
 
+
+
 # Publications
 
 ```{r}
