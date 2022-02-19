@@ -100,13 +100,13 @@ bibliography_entries("/Users/matthew/Documents/Career/Resume/Kusen_CV/kusen_publ
 ```{r}
 tribble(
   ~Year, ~Type, ~Place,
-  2021, "Python Fundementals Track - DataCamp", "online",
+  2022, "Python Fundementals Track - DataCamp", "online",
   2019, "Monitoring & Evaluation for Results - IMA International", "Bangkok, Thailand",
   2018, "Hostile Environment Awareness Training (HEAT) - Human Development Forum Foundation","Thailand",
   2018, "CPR and First Aid Training - First Aid Bangkok", "Thailand",
   2017, "Rape Crisis Counsellor Training - Department of Health ", "New York, USA",
   2016, "Trainer of Clinical Care for Sexual Assault Survivors (CCSAS) - International Rescue Committee", "Uganda",
-  2014, "Minimum Initial Service Package (MSIP) for Reproductive Health In Crisis - IAWG", "online"
+  2014, "Minimum Initial Service Package (MISP) for Reproductive Health In Crisis - IAWG", "online"
 ) %>%  
   brief_entries(
     Type,
@@ -148,6 +148,7 @@ library(magrittr)
 library(ggmap)
 library(stringr)
 library(tidyverse)
+library(sf)
 
 #update country experience list and country support list
 country_w <- c("Indonesia","Philippines","Fiji",
@@ -163,6 +164,8 @@ country_list_CV <- rename(country_list_CV, country = country_w,
 
 #load map data
 map.world <- map_data("world")
+#remove Antarctica
+map.world <- map.world %>% filter(region != "Antarctica")
 
 #verify all countries found in world map
 check <- map.world %>% filter(region %in% country_list_CV$country)
