@@ -24,9 +24,8 @@ library(glue)
 
 # Overview
 
-* Public Health professional with 9 years of experience working in and providing technical support to programs in humanitarian and development settings. 
-* Currently enrolled in a Master's in Demography. 
-* Skills in data analysis, statistical analysis, data visualization, monitoring & evaluation, management, leadership, coordination, capacity development, program design, budget management and reporting. 
+* Public Health professional and Demographer with 10 years of experience working in and providing technical support to programs in humanitarian and development settings. 
+* Skills in data analysis, statistical analysis, data visualization, monitoring & evaluation, management, leadership, coordination, capacity development, facilitation, strategic planning, program design, budget management, and reporting. 
 * Expertise in sexual & reproductive health (SRH) and inclusion of sexual and gender minorities (LGBTIQ+).
 
 ```{r}
@@ -190,7 +189,9 @@ plot_work_experience <- ggplot() +
     labs(fill="Country Experience")+
     scale_fill_discrete(name="Country Experience", 
                       labels=c("Supported Remotely",
-                               "Worked In-Country"," "))
+                               "Worked In-Country"," "),
+                      na.value="grey",
+                      type = c('cadetblue3','darkorchid1'))
 plot_work_experience
 ```
 
