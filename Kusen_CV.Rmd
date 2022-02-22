@@ -24,7 +24,7 @@ library(glue)
 
 # Overview
 
-* Public Health professional and Demographer with 10 years of experience working in and providing technical support to programs in humanitarian and development settings. 
+* Specialist in Demography and Public Health with 10 years of experience working in and providing technical support to programs in humanitarian and development settings in low and middle income countries
 * Skills in data analysis, statistical analysis, data visualization, monitoring & evaluation, management, leadership, coordination, capacity development, facilitation, strategic planning, program design, budget management, and reporting. 
 * Expertise in sexual & reproductive health (SRH) and inclusion of sexual and gender minorities (LGBTIQ+).
 
