@@ -5,6 +5,7 @@ position: "Demography - Public Health - Data Analysis"
 address: "Centric Ari Station, Phaya Thai, Bangkok, Thailand"
 phone: +66 91 792 8610
 email: "mrkusen@gmail.com"
+www: kusen.netlify.app
 twitter: mkusen
 github: mrkusen
 linkedin: mrkusen
