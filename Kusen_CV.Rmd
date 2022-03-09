@@ -100,7 +100,7 @@ bibliography_entries("/Users/matthew/Documents/Career/Resume/Kusen_CV/kusen_publ
 ```{r}
 tribble(
   ~Year, ~Type, ~Place,
-  2022, "Python Fundementals Track - DataCamp", "online",
+  2022, "Python Fundamentals Track - DataCamp", "online",
   2019, "Monitoring & Evaluation for Results - IMA International", "Bangkok, Thailand",
   2018, "Hostile Environment Awareness Training (HEAT) - Human Development Forum Foundation","Thailand",
   2018, "CPR and First Aid Training - First Aid Bangkok", "Thailand",
