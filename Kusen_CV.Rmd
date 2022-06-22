@@ -134,7 +134,7 @@ tribble(
 ```
 
 # Country Experience
-Indonesia, Philippines, Fiji, Papua New Guinea, Haiti, Central African Republic (CAR), Democratic Republic of the Congo (DRC), Togo, Sierra Leone, United States, Thailand and France
+Ukraine, Indonesia, Philippines, Fiji, Papua New Guinea, Haiti, Central African Republic (CAR), Democratic Republic of the Congo (DRC), Togo, Sierra Leone, United States, Thailand, Poland and France
 
 
 
@@ -151,7 +151,7 @@ library(tidyverse)
 library(sf)
 
 #update country experience list and country support list
-country_w <- c("Indonesia","Philippines","Fiji",
+country_w <- c("Ukraine","Poland","Indonesia","Philippines","Fiji",
 "Papua New Guinea","Haiti", "Central African Republic", "Democratic Republic of the Congo", "Togo", "Sierra Leone", "USA", "Thailand","France","Denmark")
 country_work <- cbind(country_w,"worked")
 
