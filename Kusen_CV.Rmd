@@ -152,10 +152,10 @@ library(sf)
 
 #update country experience list and country support list
 country_w <- c("Ukraine","Poland","Indonesia","Philippines","Fiji",
-"Papua New Guinea","Haiti", "Central African Republic", "Democratic Republic of the Congo", "Togo", "Sierra Leone", "USA", "Thailand","France","Denmark")
+"Papua New Guinea","Haiti", "Central African Republic", "Democratic Republic of the Congo", "Togo", "Sierra Leone", "USA", "Thailand","France","Denmark","Bhutan","Sri Lanka")
 country_work <- cbind(country_w,"worked")
 
-country_s <- c("Nigeria","Chad","Burkina Faso","Niger","Ghana","South Sudan","Tanzania","Afghanistan","Pakistan","India","Bangladesh","Sri Lanka","Myanmar","Syria","Yemen","Uganda","Kenya","Mongolia")
+country_s <- c("Nigeria","Chad","Burkina Faso","Niger","Ghana","South Sudan","Tanzania","Afghanistan","Pakistan","India","Bangladesh","Sri Lanka","Myanmar","Syria","Yemen","Uganda","Kenya","Mongolia","Mongolia")
 country_support <- cbind(country_s,"support")
 
 country_list_CV <- rbind(country_work,country_support) %>% as_tibble()
