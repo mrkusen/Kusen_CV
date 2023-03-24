@@ -69,7 +69,7 @@ jobs %>%
 ```{r}
 tribble(
   ~ Degree, ~ Year, ~ Institution, ~ Where,
-  "Master of Demography", "Expected November 2022", "Chulalongkorn University", "Bangkok, Thailand",
+  "Master of Arts in Demography", "December 2022", "Chulalongkorn University", "Bangkok, Thailand",
   "Bachelor of Political Science", "May 2012", "University at Buffalo, SUNY", "New York, USA",
   "Exchange Student", "2011", "Université de Paris 7", "Paris, France",
   "French Immersion Program", "2010", "Institut de Touraine", "Tours, France"
