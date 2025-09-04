@@ -25,9 +25,7 @@ library(glue)
 
 # Overview
 
-* Specialist in Demography and Public Health with 10 years of experience working in and providing technical support to programs in humanitarian and development settings in low and middle income countries
-* Skills in data analysis, statistical analysis, data visualization, monitoring & evaluation, management, leadership, coordination, capacity development, facilitation, strategic planning, program design, budget management, and reporting. 
-* Expertise in sexual & reproductive health (SRH) and inclusion of sexual and gender minorities (LGBTIQ+).
+* Specialist in Sexual and Reproductive Health (SRH) and Gender-Based Violence (GBV) programming with over seven years of experience managing humanitarian and development initiatives in Asia and the Pacific. Expertise in applying MISP standards, leading management and design in SRH programs, and fostering dymanic and results-driven partnerships.
 
 ```{r}
 #input data
@@ -71,8 +69,7 @@ tribble(
   ~ Degree, ~ Year, ~ Institution, ~ Where,
   "Master of Arts in Demography", "December 2022", "Chulalongkorn University", "Bangkok, Thailand",
   "Bachelor of Political Science", "May 2012", "University at Buffalo, SUNY", "New York, USA",
-  "Exchange Student", "2011", "Université de Paris 7", "Paris, France",
-  "French Immersion Program", "2010", "Institut de Touraine", "Tours, France"
+  "Exchange Student", "2011", "Université de Paris 7", "Paris, France"
 ) %>% 
   detailed_entries(Degree, Year, Institution, Where)
 ```
@@ -155,7 +152,7 @@ country_w <- c("Ukraine","Poland","Indonesia","Philippines","Fiji",
 "Papua New Guinea","Haiti", "Central African Republic", "Democratic Republic of the Congo", "Togo", "Sierra Leone", "USA", "Thailand","France","Denmark","Bhutan","Sri Lanka","Mongolia")
 country_work <- cbind(country_w,"worked")
 
-country_s <- c("Nigeria","Chad","Burkina Faso","Niger","Ghana","South Sudan","Tanzania","Afghanistan","Pakistan","India","Bangladesh","Sri Lanka","Myanmar","Syria","Yemen","Uganda","Kenya")
+country_s <- c("Nigeria","Chad","Burkina Faso","Niger","Ghana","South Sudan","Tanzania","Afghanistan","Pakistan","India","Bangladesh","Sri Lanka","Myanmar","Syria","Yemen","Uganda","Malaysia","Kenya")
 country_support <- cbind(country_s,"support")
 
 country_list_CV <- rbind(country_work,country_support) %>% as_tibble()
